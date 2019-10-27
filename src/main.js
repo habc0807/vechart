@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
-import vechart from './lib/vechart'
+import vechart from 'vechart'
 
 Vue.use(vechart)
 Vue.config.productionTip = false

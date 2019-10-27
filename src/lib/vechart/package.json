@@ -1,6 +1,6 @@
 {
   "name": "vechart",
-  "version": "1.0.0",
+  "version": "1.0.7",
   "description": "基于Vue和eCharts的Vue组件和指令的插件",
   "main": "index.js",
   "scripts": {
