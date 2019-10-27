@@ -1,24 +1,74 @@
-# vechart
+### vechart 
 
-## Project setup
-```
-yarn install
-```
+`vechart` 插件是将传统 `echart.js` 封装成Vue组件和指令使用。
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+### 插件的安装
 
-### Compiles and minifies for production
-```
-yarn build
+#### NPM
+
+```javascript
+npm i vechart
 ```
 
-### Lints and fixes files
-```
-yarn lint
+#### CNPM
+
+```javascript
+cnpm i vechart
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### 引入插件
+
+```javascript
+import Vue from 'vue';
+import Vechart from 'vechart';
+
+Vue.use(Vechart);
+```
+
+### 基本用法
+
+#### vechart组件的用法
+
+```javascript
+<vechart :options="options1" :styles="echartStyle"></vechart>
+```
+
+```javascript
+options1: {
+    series: {
+        type: 'pie',
+        data: [{
+                name: 'A',
+                value: 1212
+            },
+            {
+                name: 'B',
+                value: 2323
+            },
+            {
+                name: 'C',
+                value: 1919
+            }
+        ]
+    }
+},
+```
+
+#### vechart指令的用法
+
+```javascript
+<div v-echarts="options" :styles="echartStyle" ></div>
+```
+
+
+### API
+
+| 参数 | 说明 | 类型 | 默认值 |
+| ------ | ------ | ------ | ------ |
+| options | 中等文本 | Object | - |
+| styles | 默认样式 | Oject | `{ width: '100px',height: '100px'}` |
+
+
+### Author
+
+[habc0807](https://github.com/habc0807)
