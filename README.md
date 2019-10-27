@@ -68,6 +68,8 @@ options1: {
 | options | 中等文本 | Object | - |
 | styles | 默认样式 | Oject | `{ width: '100px',height: '100px'}` |
 
+### DEOM地址
+[demo演示地址](https://habc0807.github.io/vechart/dist/index.html)
 
 ### Author
 
