@@ -27,10 +27,13 @@ const vechart = {
                 )
             },
             watch: {
-                options(v) {
-                    if(v) {
-                        this.initOption()
-                    }
+                options: {
+                    handler(v) {
+                        if(v) {
+                            this.initOption()
+                        }
+                    },
+                    deep: true
                 }
             },
             mounted() {
