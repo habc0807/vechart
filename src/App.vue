@@ -1,13 +1,17 @@
 <template>
   <div id="app">
-    <div class="" @click="updateOnechartData">更改图的数据, 图会从新渲染</div>
+    <p>第一个demo</p>
+    <div class="" @click="updateOnechartData">更改数据</div>
     <vechart :options="options1" :styles="echartStyle"></vechart>
-    <!-- <vechart :options="options2" :styles="echartStyle"></vechart> -->
+    <p style="margin-top: 40px">第二个demo</p>
+    <div class="" @click="updateSecondchartData">更改数据</div>
+    <vechart :options="options2" :styles="echartStyle"></vechart>
     <div v-echart="options1" :styles="echartStyle" ></div>
   </div>
 </template>
 
 <script>
+import { circle1, circle2, lineData1, lineData2 } from './config.js'
 
 export default {
   name: 'app',
@@ -19,63 +23,31 @@ export default {
         width: '300px',
         height: '100px'
       },
-      options1: {
-          series: {
-              type: 'pie',
-              data: [{
-                      name: 'A',
-                      value: 1212
-                  },
-                  {
-                      name: 'B',
-                      value: 2323
-                  },
-                  {
-                      name: 'C',
-                      value: 1919
-                  }
-              ]
-          }
-      },
-      options2: {
-          series: {
-              type: 'pie',
-              data: [{
-                      name: 'A',
-                      value: 2323
-                  },
-                  {
-                      name: 'B',
-                      value: 1212
-                  },
-                  {
-                      name: 'C',
-                      value: 1919
-                  }
-              ]
-          }
-      }
+      frag1: true,
+      frag2: true,
+      options1: circle1,
+      options2: lineData1
     }
   },
   methods: {
       updateOnechartData() {
-          this.options1 = {
-              series: {
-                type: 'pie',
-                data: [{
-                        name: 'A',
-                        value: 2
-                    },
-                    {
-                        name: 'B',
-                        value: 2
-                    },
-                    {
-                        name: 'C',
-                        value: 5
-                    }
-                ]
-            }
+          const { frag1 } = this 
+          if (frag1) {
+              this.options1 = circle2
+              this.frag1 = !frag1
+          } else {
+              this.options1 = circle1
+              this.frag1 = !frag1
+          }
+      },
+      updateSecondchartData() {
+          const { frag2 } = this 
+          if (frag2) {
+              this.options2 = lineData2
+              this.frag2 = !frag2
+          } else {
+              this.options2 = lineData1
+              this.frag2 = !frag2
           }
       }
   }
@@ -90,5 +62,8 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+p {
+    text-align: left;
 }
 </style>
