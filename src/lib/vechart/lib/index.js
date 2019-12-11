@@ -4,13 +4,6 @@ const vechart = {
     install: Vue => {
         Vue.component('vechart', {
             name: 'echart',
-            render(createElement) {
-                return createElement(
-                    'div', {
-                        style: this.styles,
-                    }
-                )
-            },
             props: {
                 options: {
                     type: Object,
@@ -26,9 +19,28 @@ const vechart = {
                     })
                 }
             },
+            render(createElement) {
+                return createElement(
+                    'div', {
+                        style: this.styles,
+                    }
+                )
+            },
+            watch: {
+                options(v) {
+                    if(v) {
+                        this.initOption()
+                    }
+                }
+            },
             mounted() {
-                const echartsHandle = echarts.init(this.$el);
-                echartsHandle.setOption(this.options);
+                this.initOption()
+            },
+            methods: {
+                initOption() {
+                    const echartsHandle = echarts.init(this.$el);
+                    echartsHandle.setOption(this.options);
+                }
             },
         })
 
