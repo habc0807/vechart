@@ -42,7 +42,7 @@ const vechart = {
             methods: {
                 initOption() {
                     const echartsHandle = echarts.init(this.$el);
-                    echartsHandle.setOption(this.options);
+                    echartsHandle.setOption(this.options, true);
                 }
             },
         })
