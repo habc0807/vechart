@@ -1,7 +1,5 @@
-import echarts from 'echarts'
-
 const vechart = {
-    install: Vue => {
+    install: function(Vue) {
         Vue.component('vechart', {
             name: 'echart',
             props: {
