@@ -1,3 +1,4 @@
+import echarts from 'echarts'
 const vechart = {
     install: function(Vue) {
         Vue.component('vechart', {
